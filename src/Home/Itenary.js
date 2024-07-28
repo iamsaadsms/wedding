@@ -6,6 +6,9 @@ const Itenary = () => {
     return(
         <div className="Itenary">
             <Gift />
+            <div className="itenary-data">
+                
+            </div>
         </div>
     )
 }

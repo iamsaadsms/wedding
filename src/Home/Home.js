@@ -1,41 +1,38 @@
-import React, { useEffect, useRef, useState } from "react";
-import { FaVolumeUp, FaVolumeMute } from "react-icons/fa";
+import React, { useState, useRef, useEffect } from "react";
 import './Home.css';
 import MainHome from "./MainHome";
 import Countdown from "./Countdown";
 import Itenary from "./Itenary";
+import { FaVolumeUp, FaVolumeMute } from 'react-icons/fa';
 import bgsong from '../Media/song.mp3';
+import Slider from "./SliderHome";
 
 const Home = () => {
-    const audioRef = useRef(null);
     const [isPlaying, setIsPlaying] = useState(true);
+    const audioRef = useRef(null);
 
     useEffect(() => {
-        if (audioRef.current) {
+        if (isPlaying) {
             audioRef.current.play();
+        } else {
+            audioRef.current.pause();
         }
-    }, []);
+    }, [isPlaying]);
 
-    const handleToggleAudio = () => {
-        if (audioRef.current) {
-            if (isPlaying) {
-                audioRef.current.pause();
-            } else {
-                audioRef.current.play();
-            }
-            setIsPlaying(!isPlaying);
-        }
+    const togglePlayPause = () => {
+        setIsPlaying(!isPlaying);
     };
 
     return (
-        <div className="Home" >
-            <audio ref={audioRef} src={bgsong} loop />
+        <div className="Home">
             <MainHome />
             <Countdown />
             <Itenary />
-            <div className="audio-icon" onClick={handleToggleAudio}>
-                {isPlaying ? <FaVolumeUp size={24} /> : <FaVolumeMute size={24} />}
+            <audio ref={audioRef} src={bgsong} autoPlay loop />
+            <div className="audio-icon" onClick={(e) => {e.stopPropagation(); togglePlayPause();}}>
+                {isPlaying ? <FaVolumeUp /> : <FaVolumeMute />}
             </div>
+            <Slider />
         </div>
     );
 }

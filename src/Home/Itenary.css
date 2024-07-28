@@ -5,3 +5,14 @@
     position: relative;
     top: 40vh;
 }
+
+.itenary-data {
+    padding: 30vh 5vw;
+    background: rgba(81, 207, 134, 0.9);
+    position: absolute;
+    width: 60vw;
+    top: 20vh;
+    left: 20vw;
+    border-radius: 25px;
+    border: 2px solid rgb(250, 179, 113, 0.3);
+}
