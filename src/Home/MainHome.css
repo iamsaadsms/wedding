@@ -1,0 +1,16 @@
+.border-home {
+    width: 100vw;
+    object-fit: fill;
+    height: 20vh;
+    padding: 0vh 5vw;
+
+
+}
+
+.MainHome {
+    position: relative;
+
+    background: rgb(171, 236, 67);
+    height: 100vh;
+    margin: 0;
+}

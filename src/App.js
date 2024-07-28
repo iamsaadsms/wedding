@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import Preloader from './Common/Preloader';
+import Home from './Home/Home';
 
-function App() {
+const App = () => {
+  const [isPreloading, setIsPreloading] = useState(true);
+
+  const handlePreloaderFinish = () => {
+    setIsPreloading(false);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {isPreloading ? (
+        <Preloader onFinish={handlePreloaderFinish} />
+      ) : (
+        <div>
+          <Home />
+          <h1>Welcome to the Website!</h1>
+        </div>
+      )}
     </div>
   );
-}
+};
 
 export default App;
