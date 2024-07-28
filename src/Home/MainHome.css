@@ -9,8 +9,18 @@
 
 .MainHome {
     position: relative;
-
-    background: rgb(171, 236, 67);
+    background: rgb(112, 255, 107);
     height: 100vh;
     margin: 0;
+}
+
+.home-mid {
+    padding: 10vh 10vw;
+    background: rgb(118, 132, 194);
+    position: absolute;
+    width: 60vw;
+    height: 70vh;
+    left: 20vw;
+    top: 15vh;
+    border-radius: 30px;
 }

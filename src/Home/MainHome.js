@@ -6,8 +6,13 @@ import PetalAnimation from "../Common/PetalAnimation";
 const MainHome = () => {
     return(
         <div className="MainHome">
-            {/* <img src={border} className="border-home" /> */}
+            <div className="home-mid">
+
+            </div>
             <PetalAnimation />
+
+
+
         </div>
     )
 }

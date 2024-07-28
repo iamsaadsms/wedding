@@ -95,7 +95,7 @@ const PetalAnimation = () => {
     };
   }, []);
 
-  return <canvas ref={canvasRef} style={{ display: 'block', backgroundColor: 'rgba(134, 131, 131, 0.4)', height: '100vh', position: 'absolute', top:'0vh' }} />;
+  return <canvas ref={canvasRef} style={{ display: 'block', backgroundColor: 'rgba(134, 131, 131, 0.1)', height: '100vh', position: 'absolute', top:'0vh' }} />;
 };
 
 export default PetalAnimation;
