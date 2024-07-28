@@ -1,15 +1,18 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useEffect, useRef } from 'react';
 import './Home.css';
 import MainHome from "./MainHome";
 import Countdown from "./Countdown";
 import Itenary from "./Itenary";
+import Slider from "./SliderHome";
 import { FaVolumeUp, FaVolumeMute } from 'react-icons/fa';
 import bgsong from '../Media/song.mp3';
-import Slider from "./SliderHome";
+import LocomotiveScroll from 'locomotive-scroll';
+import 'locomotive-scroll/dist/locomotive-scroll.css';
 
 const Home = () => {
-    const [isPlaying, setIsPlaying] = useState(true);
-    const audioRef = useRef(null);
+    const [isPlaying, setIsPlaying] = React.useState(true);
+    const audioRef = React.useRef(null);
+    const scrollRef = useRef(null);
 
     useEffect(() => {
         if (isPlaying) {
@@ -19,12 +22,24 @@ const Home = () => {
         }
     }, [isPlaying]);
 
+    useEffect(() => {
+        const scroll = new LocomotiveScroll({
+            el: scrollRef.current,
+            smooth: true,
+            // Add any other Locomotive Scroll options here
+        });
+
+        return () => {
+            scroll.destroy(); // Clean up the Locomotive Scroll instance
+        };
+    }, []);
+
     const togglePlayPause = () => {
         setIsPlaying(!isPlaying);
     };
 
     return (
-        <div className="Home">
+        <div className="Home" data-scroll-container ref={scrollRef}>
             <MainHome />
             <Countdown />
             <Itenary />
